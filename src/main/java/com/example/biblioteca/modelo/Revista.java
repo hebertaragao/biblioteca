@@ -1,4 +1,4 @@
-package com.example.biblioteca.biblioteca.modelo;
+package com.example.biblioteca.modelo;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
