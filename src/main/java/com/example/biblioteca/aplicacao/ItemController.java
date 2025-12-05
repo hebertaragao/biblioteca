@@ -26,7 +26,6 @@ public class ItemController {
     }
 
     @GetMapping("/categoria/{categoria}")
-3
 
     public List<Item> listarPorCategoria(@PathVariable String
                                                  categoria) {
