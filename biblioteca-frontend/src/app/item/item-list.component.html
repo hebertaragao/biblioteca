@@ -1,0 +1,36 @@
+<div class="card">
+<div class="card-header">
+<h2>Lista de Itens</h2>
+</div>
+<div class="card-body">
+<table class="table table-hover">
+<thead>
+<tr>
+<th>Título</th>
+<th>Autor/Artista</th>
+<th>Categoria</th>
+<th>Tipo</th>
+<th>Detalhes</th>
+<th>Ações</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let item of items">
+<td>{{ item.titulo }}</td>
+<td>{{ item.autor }}</td>
+<td>{{ item.categoria }}</td>
+<td>{{ item['@type'] }}</td>
+<td>
+<ng-container *ngIf="item['@type'] === 'Livro'">Ano: {{ item.anoPublicacao }}</ng-container>
+<ng-container *ngIf="item['@type'] === 'Revista’">Edição: {{ item.edicao }}</ngcontainer>
+<ng-container *ngIf="item['@type'] === 'Album'">Faixas: {{ item.numeroFaixas }}</ng-container>
+</td>
+<td>
+<button class="btn btn-sm btn-primary me-2"[routerLink]="['/edit', item.id]">Editar</button>
+<button class="btn btn-sm btn-danger" (click)="deleteItem(item.id)">Excluir</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>

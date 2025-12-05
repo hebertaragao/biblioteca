@@ -1,0 +1,39 @@
+<div class="card">
+<div class="card-header">
+<h2>Filtrar por Categoria</h2>
+</div>
+<div class="card-body">
+<form (ngSubmit)="onFilter()">
+<div class="mb-3">
+<label for="categoria" class="form-label">Categoria</label>
+<input id="categoria" [(ngModel)]="categoria" name="categoria" class="form-control" placeholder="Digite a categoria" required>
+</div>
+<button type="submit" class="btn btn-primary">Filtrar</button>
+<button type="button" class="btn btn-secondary ms-2" (click)="resetFilter()">Limpar</button>
+</form>
+<table class="table table-hover mt-3" *ngIf="items.length">
+<thead>
+<tr>
+<th>Título</th>
+<th>Autor/Artista</th>
+<th>Categoria</th>
+<th>Tipo</th>
+<th>Detalhes</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let item of items">
+<td>{{ item.titulo }}</td>
+<td>{{ item.autor }}</td>
+<td>{{ item.categoria }}</td>
+<td>{{ item['@type'] }}</td>
+<td>
+<ng-container *ngIf="item['@type'] === 'Livro'">Ano: {{ item.anoPublicacao }}</ng-container>
+<ng-container *ngIf="item['@type'] === 'Revista'">Edição: {{ item.edicao }}</ngcontainer>
+<ng-container *ngIf="item['@type'] === 'Album'">Faixas: {{ item.numeroFaixas }}</ng-container>
+34 </td>
+35 </tr>
+36 </tbody>
+37 </table>
+38 </div>
+39 </div>

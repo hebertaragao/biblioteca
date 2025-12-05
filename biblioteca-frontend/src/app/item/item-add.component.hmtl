@@ -1,0 +1,42 @@
+<div class="card">
+<div class="card-header">
+<h2>Adicionar Novo Item</h2>
+</div>
+<div class="card-body">
+<form (ngSubmit)="onSubmit()">
+<div class="mb-3">
+<label for="titulo" class="form-label">Título</label>
+<input id="titulo" [(ngModel)]="item.titulo" name="titulo" class="form-control" placeholder="Digite o título" required>
+</div>
+<div class="mb-3">
+<label for="autor" class="form-label">Autor/Artista</label><input id="autor" [(ngModel)]="item.autor" name="autor" class="form-control" placeholder="Digite o autor ou artista" required>
+</div>
+<div class="mb-3">
+<label for="categoria" class="form-label">Categoria</label><input id="categoria" [(ngModel)]="item.categoria"name="categoria" class="form-control" placeholder="Digite a categoria" required>
+</div>
+<div class="mb-3">
+<label for="tipo" class="form-label">Tipo de Item</label>
+<select id="tipo" [(ngModel)]="tipo" name="tipo"class="form-select" required>
+<option value="" disabled>Selecione o tipo</option>
+<option value="Livro">Livro</option>
+<option value="Revista">Revista</option>
+<option value="Album">Álbum de Música</option>
+</select>
+</div>
+<div class="mb-3" *ngIf="tipo === 'Livro'">
+<label for="anoPublicacao" class="form-label">Ano de Publicação</label>
+<input id="anoPublicacao" [(ngModel)]="item.anoPublicacao" name="anoPublicacao" class="formcontrol"type="number" placeholder="Digite o ano">
+</div>
+<div class="mb-3" *ngIf="tipo === 'Revista'">
+<label for="edicao" class="form-label">Edição</label>
+<input id="edicao" [(ngModel)]="item.edicao" name="edicao" class="form-control" placeholder="Digite a edição">
+</div>
+<div class="mb-3" *ngIf="tipo === 'Album'">
+<label for="numeroFaixas" class="form-label">Númerode Faixas</label>
+<input id="numeroFaixas" [(ngModel)]="item.numeroFaixas" name="numeroFaixas" class="formcontrol"type="number" placeholder="Digite o número de faixas">
+</div>
+<button type="submit" class="btn btn-primary">Adicionar</button>
+<button type="button" class="btn btn-secondary ms-2"routerLink="/list">Cancelar</button>
+</form>
+</div>
+</div>
